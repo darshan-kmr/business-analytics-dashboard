@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Business Analytics Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div>
+            <p class="eyebrow">BUSINESS ANALYTICS</p>
+            <h1>Performance Dashboard</h1>
+            <p class="subtitle">
+                Monitor revenue, orders, products and sales performance.
+            </p>
+        </div>
+
+        <div id="status" class="status">
+            Loading...
+        </div>
+    </header>
+
+
+    <!-- FILTERS -->
+
+    <section class="filters">
+
+        <div class="filter">
+            <label>Start Date</label>
+            <input type="date" id="startDate">
+        </div>
+
+        <div class="filter">
+            <label>End Date</label>
+            <input type="date" id="endDate">
+        </div>
+
+        <div class="filter">
+            <label>Brand</label>
+            <select id="brand">
+                <option value="All">All</option>
+            </select>
+        </div>
+
+        <div class="filter">
+            <label>Outlet</label>
+            <select id="outlet">
+                <option value="All">All</option>
+            </select>
+        </div>
+
+        <div class="filter">
+            <label>Category</label>
+            <select id="category">
+                <option value="All">All</option>
+            </select>
+        </div>
+
+        <div class="filter">
+            <label>Order Type</label>
+            <select id="orderType">
+                <option value="All">All</option>
+            </select>
+        </div>
+
+        <div class="filter">
+            <label>Settlement</label>
+            <select id="settlement">
+                <option value="All">All</option>
+            </select>
+        </div>
+
+        <button id="applyBtn">
+            Apply Filters
+        </button>
+
+        <button id="resetBtn" class="secondary">
+            Reset
+        </button>
+
+    </section>
+
+
+    <!-- KPI CARDS -->
+
+    <section class="kpis">
+
+        <div class="card">
+            <span>Total Revenue</span>
+            <strong id="revenue">₹0</strong>
+        </div>
+
+        <div class="card">
+            <span>Total Orders</span>
+            <strong id="orders">0</strong>
+        </div>
+
+        <div class="card">
+            <span>Average Order Value</span>
+            <strong id="aov">₹0</strong>
+        </div>
+
+        <div class="card">
+            <span>Total Items</span>
+            <strong id="items">0</strong>
+        </div>
+
+        <div class="card">
+            <span>Total Records</span>
+            <strong id="records">0</strong>
+        </div>
+
+    </section>
+
+
+    <!-- CHART GRID -->
+
+    <section class="grid">
+
+        <div class="chart-card large">
+
+            <div class="chart-header">
+                <div>
+                    <h2>Revenue Trend</h2>
+                    <p>Daily revenue performance</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+            </div>
+
+        </div>
+
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+                <div>
+                    <h2>Revenue by Category</h2>
+                    <p>Category contribution</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
+            </div>
+
+        </div>
+
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+                <div>
+                    <h2>Order Types</h2>
+                    <p>Orders by channel</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="orderTypeChart"></canvas>
+            </div>
+
+        </div>
+
+
+        <div class="chart-card large">
+
+            <div class="chart-header">
+                <div>
+                    <h2>Top 10 Items</h2>
+                    <p>Highest revenue-generating items</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="itemsChart"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Business Analytics Dashboard · Built with FastAPI + SQLite
+    </footer>
+
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
